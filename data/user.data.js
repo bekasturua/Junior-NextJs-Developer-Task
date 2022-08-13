@@ -32,3 +32,4 @@ const users = [
     RoleId: 2,
   },
 ];
+export default users;
