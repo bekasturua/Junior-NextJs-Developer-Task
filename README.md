@@ -1,0 +1,1 @@
+# Junior-NextJs-Developer-Task
