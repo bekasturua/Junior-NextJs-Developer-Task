@@ -10,7 +10,7 @@ json-server --watch db.json
 
 Then you can add dummy initial data with the command:
 ```
-node insert-data.js
+node insert-data.mjs
 ```
 
 

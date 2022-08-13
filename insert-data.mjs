@@ -1,7 +1,7 @@
 import axios from "axios";
-import roles from "./data/role.data.js";
-import statuses from "./data/status.data.js";
-import users from "./data/user.data.js";
+import roles from "./data/role.data.mjs";
+import statuses from "./data/status.data.mjs";
+import users from "./data/user.data.mjs";
 
 
 try {
