@@ -2,9 +2,19 @@ import classes from "./Users.module.css";
 import { useSelector } from "react-redux";
 import Link from "next/link";
 import User from "./User";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { deleteUserFromState } from "../../slices/userSlice";
 
 function Users() {
+  const dispatch = useDispatch();
+
   const users = useSelector((state) => state.user.users);
+
+  const onDeleteHandler = async (userId) => {
+    await axios.delete(`http://localhost:3000/users/${userId}`);
+    dispatch(deleteUserFromState(userId));
+  };
 
   return (
     <section>
@@ -24,7 +34,7 @@ function Users() {
                 href={{ pathname: "/edit-user", query: { userId: user.id } }}
                 key={user.id}
               >
-                <User user={user} />
+                <User user={user} onDeleteHandler={onDeleteHandler} />
               </Link>
             );
           })}

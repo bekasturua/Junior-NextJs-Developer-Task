@@ -1,6 +1,6 @@
 import classes from "./User.module.css";
 
-function User({ user }) {
+function User({ user, onDeleteHandler }) {
   return (
     <div>
       <div className={classes.user}>
@@ -13,7 +13,7 @@ function User({ user }) {
         </div>
       </div>
       <div>
-        <button>Delete User</button>
+        <button onClick={() => onDeleteHandler(user.id)}>Delete User</button>
       </div>
     </div>
   );
