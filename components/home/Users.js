@@ -38,7 +38,7 @@ function Users() {
         />
       </div>
       <div>
-        <div className={classes.d}>
+        <div className={classes.col}>
           {users.map((user) => {
             return (
               <div key={user.id} className={classes.user_card}>
@@ -48,16 +48,16 @@ function Users() {
                   <div>
                     <div className={classes.user}>
                       <div>
-                        <p>{user.firstName}</p>
-                        <p>{user.lastName}</p>
-                        <p>{user.age}</p>
-                        <p>{user.statusId}</p>
-                        <p>{user.roleId}</p>
+                        <p>FirstName: {user.firstName}</p>
+                        <p>LastName: {user.lastName}</p>
+                        <p>Age: {user.age}</p>
+                        <p>Status: {user.statusId}</p>
+                        <p>Role: {user.roleId}</p>
                       </div>
                     </div>
                   </div>
                 </Link>
-                <div>
+                <div className={classes.delete_btn}>
                   <button onClick={() => onDeleteHandler(user.id)}>
                     Delete User
                   </button>

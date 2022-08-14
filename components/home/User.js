@@ -13,7 +13,9 @@ function User(props) {
         </div>
       </div>
       <div>
-        <button onClick={() => props.onDeleteHandler(props.user.id)}>Delete User</button>
+        <button onClick={() => props.onDeleteHandler(props.user.id)}>
+          Delete User
+        </button>
       </div>
     </div>
   );
