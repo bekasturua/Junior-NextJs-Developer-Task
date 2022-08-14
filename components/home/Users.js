@@ -11,11 +11,48 @@ function Users() {
           name="name"
         />
       </div>
-      <div className={classes.users}>
-        <div>
-          <p>FirstName</p>
-          <p>LastName</p>
-          <p>DateOfBirth</p>
+      <div>
+        <div className={classes.d}>
+          <div className={classes.users}>
+            <div>
+              <p>FirstName</p>
+              <p>LastName</p>
+              <p>DateOfBirth</p>
+              <p>Age</p>
+              <p>Status</p>
+              <p>Role</p>
+            </div>
+          </div>
+          <div className={classes.users}>
+            <div>
+              <p>FirstName</p>
+              <p>LastName</p>
+              <p>DateOfBirth</p>
+              <p>Age</p>
+              <p>Status</p>
+              <p>Role</p>
+            </div>
+          </div>
+          <div className={classes.users}>
+            <div>
+              <p>FirstName</p>
+              <p>LastName</p>
+              <p>DateOfBirth</p>
+              <p>Age</p>
+              <p>Status</p>
+              <p>Role</p>
+            </div>
+          </div>
+          <div className={classes.users}>
+            <div>
+              <p>FirstName</p>
+              <p>LastName</p>
+              <p>DateOfBirth</p>
+              <p>Age</p>
+              <p>Status</p>
+              <p>Role</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
