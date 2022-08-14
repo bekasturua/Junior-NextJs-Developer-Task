@@ -1,0 +1,14 @@
+.users {
+    border: 5px dashed rgb(0, 0, 0);
+    display: flex;
+    width: 250px;
+    height: 250px;
+    margin: 20px;
+    background-color: #47176e;
+    color: white;
+}
+
+.input {
+    margin: 10px;
+    font-size: 20px;
+}
