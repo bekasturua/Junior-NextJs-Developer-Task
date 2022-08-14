@@ -1,6 +1,9 @@
 import classes from "./Users.module.css";
+import { useSelector } from "react-redux";
 
 function Users() {
+  const users = useSelector((state) => state.user.users);
+
   return (
     <section>
       <div>
@@ -13,46 +16,19 @@ function Users() {
       </div>
       <div>
         <div className={classes.d}>
-          <div className={classes.users}>
-            <div>
-              <p>FirstName</p>
-              <p>LastName</p>
-              <p>DateOfBirth</p>
-              <p>Age</p>
-              <p>Status</p>
-              <p>Role</p>
-            </div>
-          </div>
-          <div className={classes.users}>
-            <div>
-              <p>FirstName</p>
-              <p>LastName</p>
-              <p>DateOfBirth</p>
-              <p>Age</p>
-              <p>Status</p>
-              <p>Role</p>
-            </div>
-          </div>
-          <div className={classes.users}>
-            <div>
-              <p>FirstName</p>
-              <p>LastName</p>
-              <p>DateOfBirth</p>
-              <p>Age</p>
-              <p>Status</p>
-              <p>Role</p>
-            </div>
-          </div>
-          <div className={classes.users}>
-            <div>
-              <p>FirstName</p>
-              <p>LastName</p>
-              <p>DateOfBirth</p>
-              <p>Age</p>
-              <p>Status</p>
-              <p>Role</p>
-            </div>
-          </div>
+          {users.map((user) => {
+            return (
+              <div key={user.id} className={classes.users}>
+                <div >
+                  <p>{user.FirstName}</p>
+                  <p>{user.LastName}</p>
+                  <p>{user.DateOfBirth}</p>
+                  <p>{user.StatusId}</p>
+                  <p>{user.RoleId}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

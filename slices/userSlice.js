@@ -9,7 +9,11 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     addUsersIntoState: (state, action) => {
-      state.users.push(action.payload);
+      for (let user of action.payload) {
+        if (!state.users.find((u) => u.id === user.id)) {
+          state.users.push(user);
+        }
+      }
     },
   },
 });

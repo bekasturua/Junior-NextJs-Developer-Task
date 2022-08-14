@@ -1,12 +1,16 @@
 import Users from "../components/home/users";
 import Navigation from "../components/home/Navigation";
-import { Fragment } from "react";
-import { useSelector, useDispatch } from 'react-redux'
-import { addUsersIntoState } from './userSlice'
+import { Fragment, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { addUsersIntoState } from "../slices/userSlice";
+import axios from 'axios'
 
-export default function Home() {
-  const users = useSelector((state) => state.user.users)
-  const dispatch = useDispatch()
+function Home({ fetchedUsers }) {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(addUsersIntoState(fetchedUsers));
+  }, [dispatch])
 
   return (
     <Fragment>
@@ -15,3 +19,10 @@ export default function Home() {
     </Fragment>
   );
 }
+
+Home.getInitialProps = async () => {
+  const fetchedUsers = await axios.get("http://localhost:3000/users");
+  return { fetchedUsers: fetchedUsers.data };
+};
+
+export default Home;
