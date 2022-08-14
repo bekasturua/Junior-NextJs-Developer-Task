@@ -1,6 +1,7 @@
 import classes from "./Users.module.css";
 import { useSelector } from "react-redux";
 import Link from "next/link";
+import User from "./User";
 
 function Users() {
   const users = useSelector((state) => state.user.users);
@@ -19,16 +20,11 @@ function Users() {
         <div className={classes.d}>
           {users.map((user) => {
             return (
-              <Link href={{ pathname: '/edit-user', query: { userId: user.id } }} key={user.id}>
-                <div className={classes.users}>
-                  <div>
-                    <p>{user.firstName}</p>
-                    <p>{user.lastName}</p>
-                    <p>{user.age}</p>
-                    <p>{user.statusId}</p>
-                    <p>{user.roleId}</p>
-                  </div>
-                </div>
+              <Link
+                href={{ pathname: "/edit-user", query: { userId: user.id } }}
+                key={user.id}
+              >
+                <User user={user} />
               </Link>
             );
           })}
