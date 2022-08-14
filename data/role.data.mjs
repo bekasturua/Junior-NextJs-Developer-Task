@@ -1,11 +1,9 @@
 const roles = [
   {
-    Id: 1,
-    Name: "Moderator",
+    name: "Moderator",
   },
   {
-    Id: 2,
-    Name: "Admin",
+    name: "Admin",
   },
 ];
 

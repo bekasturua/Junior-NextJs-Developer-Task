@@ -20,11 +20,11 @@ function Users() {
             return (
               <div key={user.id} className={classes.users}>
                 <div >
-                  <p>{user.FirstName}</p>
-                  <p>{user.LastName}</p>
-                  <p>{user.DateOfBirth}</p>
-                  <p>{user.StatusId}</p>
-                  <p>{user.RoleId}</p>
+                  <p>{user.firstName}</p>
+                  <p>{user.lastName}</p>
+                  <p>{user.dateOfBirth}</p>
+                  <p>{user.statusId}</p>
+                  <p>{user.roleId}</p>
                 </div>
               </div>
             );

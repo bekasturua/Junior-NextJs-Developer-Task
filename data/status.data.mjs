@@ -1,11 +1,9 @@
 const statuses = [
   {
-    Id: 1,
-    Name: "Active",
+    name: "Active",
   },
   {
-    Id: 2,
-    Name: "Draft",
+    name: "Draft",
   },
 ];
 
