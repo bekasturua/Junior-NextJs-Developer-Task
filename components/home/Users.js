@@ -4,9 +4,19 @@ import Link from "next/link";
 import User from "./User";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { deleteUserFromState } from "../../slices/userSlice";
+import {
+  deleteUserFromState,
+  changeUsersInState,
+} from "../../slices/userSlice";
+import { Fragment } from "react";
 
 function Users() {
+  const onSearchHandler = async (event) => {
+    const res = await axios.get(
+      `http://localhost:3000/users?q=${event.target.value}`
+    );
+    dispatch(changeUsersInState(res.data));
+  };
   const dispatch = useDispatch();
 
   const users = useSelector((state) => state.user.users);
@@ -24,18 +34,35 @@ function Users() {
           className={classes.input}
           type="text"
           name="name"
+          onChange={onSearchHandler}
         />
       </div>
       <div>
         <div className={classes.d}>
           {users.map((user) => {
             return (
-              <Link
-                href={{ pathname: "/edit-user", query: { userId: user.id } }}
-                key={user.id}
-              >
-                <User user={user} onDeleteHandler={onDeleteHandler} />
-              </Link>
+              <div key={user.id} className={classes.user_card}>
+                <Link
+                  href={{ pathname: "/edit-user", query: { userId: user.id } }}
+                >
+                  <div>
+                    <div className={classes.user}>
+                      <div>
+                        <p>{user.firstName}</p>
+                        <p>{user.lastName}</p>
+                        <p>{user.age}</p>
+                        <p>{user.statusId}</p>
+                        <p>{user.roleId}</p>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+                <div>
+                  <button onClick={() => onDeleteHandler(user.id)}>
+                    Delete User
+                  </button>
+                </div>
+              </div>
             );
           })}
         </div>
@@ -45,3 +72,4 @@ function Users() {
 }
 
 export default Users;
+/* */

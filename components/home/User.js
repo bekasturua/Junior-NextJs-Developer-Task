@@ -1,19 +1,19 @@
 import classes from "./User.module.css";
 
-function User({ user, onDeleteHandler }) {
+function User(props) {
   return (
     <div>
       <div className={classes.user}>
         <div>
-          <p>{user.firstName}</p>
-          <p>{user.lastName}</p>
-          <p>{user.age}</p>
-          <p>{user.statusId}</p>
-          <p>{user.roleId}</p>
+          <p>{props.user.firstName}</p>
+          <p>{props.user.lastName}</p>
+          <p>{props.user.age}</p>
+          <p>{props.user.statusId}</p>
+          <p>{props.user.roleId}</p>
         </div>
       </div>
       <div>
-        <button onClick={() => onDeleteHandler(user.id)}>Delete User</button>
+        <button onClick={() => props.onDeleteHandler(props.user.id)}>Delete User</button>
       </div>
     </div>
   );
