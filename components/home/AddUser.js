@@ -6,7 +6,7 @@ function AddUser() {
   const [user, setUser] = useState({
     firstName: "",
     lastName: "",
-    dateOfBirth: "",
+    age: 0,
     statusId: 0,
     roleId: 0,
   });
@@ -41,13 +41,13 @@ function AddUser() {
           />
         </div>
         <div className={classes.control}>
-          <label>Date Of Birth</label>
+          <label>Age</label>
           <input
-            type="date"
+            type="number"
             required
-            id="date_of_birth"
+            id="age"
             onChange={(event) => {
-              setUser({ ...user, dateOfBirth: event.target.value });
+              setUser({ ...user, age: Number(event.target.value) });
             }}
           />
         </div>
