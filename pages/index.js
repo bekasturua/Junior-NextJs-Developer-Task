@@ -10,7 +10,7 @@ function Home({ fetchedUsers }) {
 
   useEffect(() => {
     dispatch(addUsersIntoState(fetchedUsers));
-  }, [dispatch])
+  }, [dispatch, fetchedUsers])
 
   return (
     <Fragment>
