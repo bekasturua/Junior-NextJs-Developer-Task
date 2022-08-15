@@ -11,14 +11,14 @@ import {
 function Users() {
   const onSortClickHandlerAsc = async (event) => {
     const res = await axios.get(
-      `http://localhost:3000/users?_sort=age&_order=asc`
+      `http://localhost:3000/users?_sort=age&_order=asc&_expand=status&&_expand=role`
     );
     dispatch(changeUsersInState(res.data));
   };
 
   const onSearchHandler = async (event) => {
     const res = await axios.get(
-      `http://localhost:3000/users?q=${event.target.value}`
+      `http://localhost:3000/users?q=${event.target.value}&_expand=status&_expand=role`
     );
     dispatch(changeUsersInState(res.data));
   };
@@ -43,7 +43,7 @@ function Users() {
         />
       </div>
       <div>
-        <button className={classes.sort} onClick={onSortClickHandlerAsc}>Age according to growth</button>
+        <button className={classes.sort} onClick={onSortClickHandlerAsc}>Sort by age</button>
       </div>
       <div>
         <div className={classes.col}>
@@ -59,8 +59,8 @@ function Users() {
                         <p>FirstName: {user.firstName}</p>
                         <p>LastName: {user.lastName}</p>
                         <p>Age: {user.age}</p>
-                        <p>Status: {user.statusId}</p>
-                        <p>Role: {user.roleId}</p>
+                        <p>Status: {user.status.name}</p>
+                        <p>Role: {user.role.name}</p>
                       </div>
                     </div>
                   </div>
@@ -80,4 +80,3 @@ function Users() {
 }
 
 export default Users;
-/* */

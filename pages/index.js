@@ -21,7 +21,7 @@ function Home({ fetchedUsers }) {
 }
 
 Home.getInitialProps = async () => {
-  const fetchedUsers = await axios.get("http://localhost:3000/users");
+  const fetchedUsers = await axios.get("http://localhost:3000/users?_expand=status&_expand=role");
   return { fetchedUsers: fetchedUsers.data };
 };
 
