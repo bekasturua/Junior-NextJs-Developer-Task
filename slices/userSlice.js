@@ -21,10 +21,19 @@ export const userSlice = createSlice({
     changeUsersInState: (state, action) => {
       state.users = action.payload;
     },
+    addUserIntoState: (state, action) => {
+      if (!state.users.find((u) => u.id === action.payload.id)) {
+        state.users.push(action.payload);
+      }
+    },
   },
 });
 
-export const { addUsersIntoState, deleteUserFromState, changeUsersInState } =
-  userSlice.actions;
+export const {
+  addUsersIntoState,
+  deleteUserFromState,
+  changeUsersInState,
+  addUserIntoState,
+} = userSlice.actions;
 
 export default userSlice.reducer;

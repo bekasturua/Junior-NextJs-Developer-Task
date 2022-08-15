@@ -9,6 +9,8 @@ import {
 } from "../../slices/userSlice";
 
 function Users() {
+  const dispatch = useDispatch();
+
   const onSortClickHandlerAsc = async (event) => {
     const res = await axios.get(
       `http://localhost:3000/users?_sort=age&_order=asc&_expand=status&&_expand=role`
@@ -22,7 +24,6 @@ function Users() {
     );
     dispatch(changeUsersInState(res.data));
   };
-  const dispatch = useDispatch();
 
   const users = useSelector((state) => state.user.users);
 
@@ -43,7 +44,9 @@ function Users() {
         />
       </div>
       <div>
-        <button className={classes.sort} onClick={onSortClickHandlerAsc}>Sort by age</button>
+        <button className={classes.sort} onClick={onSortClickHandlerAsc}>
+          Sort by age
+        </button>
       </div>
       <div>
         <div className={classes.col}>

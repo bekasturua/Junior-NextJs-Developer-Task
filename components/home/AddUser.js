@@ -1,8 +1,12 @@
 import classes from "./AddUser.module.css";
 import axios from "axios";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addUserIntoState } from "../../slices/userSlice";
 
 function AddUser() {
+  const dispatch = useDispatch();
+
   const [user, setUser] = useState({
     firstName: "",
     lastName: "",
@@ -11,8 +15,9 @@ function AddUser() {
     roleId: 0,
   });
 
-  const addSubmitHandler = async () => {
+  const addSubmitHandler = async (event) => {
     const res = await axios.post("http://localhost:3000/users", user);
+    dispatch(addUserIntoState(user));
   };
 
   return (
