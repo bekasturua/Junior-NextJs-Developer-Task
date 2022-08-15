@@ -3,8 +3,8 @@
     color: white;
     cursor: pointer;
     margin-left: 7px;
-    width: 241px;
-    height: 241px;
+    width: 290px;
+    height: 290px;
     border-radius: 20px;
 }
 
@@ -21,6 +21,7 @@
 
 .col {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .user_card {
