@@ -1,16 +1,21 @@
 import classes from "./Users.module.css";
 import { useSelector } from "react-redux";
 import Link from "next/link";
-import User from "./User";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import {
   deleteUserFromState,
   changeUsersInState,
 } from "../../slices/userSlice";
-import { Fragment } from "react";
 
 function Users() {
+  const onSortClickHandlerAsc = async (event) => {
+    const res = await axios.get(
+      `http://localhost:3000/users?_sort=age&_order=asc`
+    );
+    dispatch(changeUsersInState(res.data));
+  };
+
   const onSearchHandler = async (event) => {
     const res = await axios.get(
       `http://localhost:3000/users?q=${event.target.value}`
@@ -36,6 +41,9 @@ function Users() {
           name="name"
           onChange={onSearchHandler}
         />
+      </div>
+      <div>
+        <button className={classes.sort} onClick={onSortClickHandlerAsc}>Age according to growth</button>
       </div>
       <div>
         <div className={classes.col}>
